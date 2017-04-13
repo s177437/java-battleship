@@ -1,0 +1,53 @@
+package com.company;
+import java.util.HashMap;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.ThreadLocalRandom;
+import java.util.ArrayList;
+
+/**
+ * Created by stianstrom on 13.04.2017.
+ */
+public class GameLogic {
+    HashMap<String, ArrayList<String>> scores=new HashMap<>();
+    public GameLogic(){}
+
+    public void play(ArrayList<ArrayList<String>> board, ArrayList playerlist, int boardid, long speed, String player) throws InterruptedException{
+        TimeUnit.SECONDS.sleep(speed);
+        Scorestat scorestat = new Scorestat();
+        ArrangeBoardAndBoats arrangementsforboardandboats = new ArrangeBoardAndBoats();
+        System.out.println("____________________________________________________________");
+
+
+        scores= scorestat.checkForWinner(playerlist,scores);
+        System.out.println("It is "+player+"'s turn to hit board"+ boardid);
+        for (ArrayList line: board){
+            System.out.println(line);
+        }
+        int row = ThreadLocalRandom.current().nextInt(1, 10 + 1) - 1;
+        int column = ThreadLocalRandom.current().nextInt(1, 10 + 1) - 1;
+        if(board.get(row).get(column)=="  "){
+            board.get(row).set(column,"**");
+            System.out.println("HIT blank field " + board.get(row).get(column) + " at location " + row +" , " + column + " no boat in sight");
+        }
+        else if(board.get(row).get(column)=="**" || board.get(row).get(column)=="--"){
+            System.out.println("HIT the following field which is already hit "+ board.get(row).get(column)+ " trying again");
+            play(board,playerlist,boardid,speed,player);
+        }
+        else {
+            String oldvalue = board.get(row).get(column);
+            board.get(row).set(column, "--");
+            Boolean boatIsGone = arrangementsforboardandboats.checkIfBoatIsBlownUp(oldvalue, board);
+            if(boatIsGone==true){
+                System.out.println("BOOM boat is gone "+oldvalue);
+                String boardplayer="board"+boardid;
+                scores=scorestat.updateScorestats(boardplayer,oldvalue,scores);
+            }
+            else{
+                System.out.println("Hit part of boat "+ oldvalue );
+            }
+            play(board,playerlist,boardid,speed,player);
+        }
+
+
+    }
+}
