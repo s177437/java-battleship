@@ -1,5 +1,7 @@
 package com.company;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.ArrayList;
@@ -8,10 +10,9 @@ import java.util.ArrayList;
  * Created by stianstrom on 13.04.2017.
  */
 public class GameLogic {
-    HashMap<String, ArrayList<String>> scores=new HashMap<>();
-    public GameLogic(){}
+    Map<String, List<String>> scores=new HashMap<>();
 
-    public void play(ArrayList<ArrayList<String>> board, ArrayList playerlist, int boardid, long speed, String player) throws InterruptedException{
+    public void play(List<ArrayList<String>> board, List playerlist, int boardid, long speed, String player) throws InterruptedException{
         TimeUnit.SECONDS.sleep(speed);
         Scorestat scorestat = new Scorestat();
         ArrangeBoardAndBoats arrangementsforboardandboats = new ArrangeBoardAndBoats();

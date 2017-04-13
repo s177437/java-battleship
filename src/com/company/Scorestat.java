@@ -1,28 +1,16 @@
 package com.company;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by stianstrom on 13.04.2017.
  */
 public class Scorestat {
-    HashMap<String, ArrayList<String>> scorestat;
-    public Scorestat(){
-        scorestat=new HashMap<>();
-    }
 
-    public void setScorestat(HashMap s) {
-        this.scorestat= s;
-    }
-    public HashMap getScorestat(){
-        return scorestat;
-    }
-
-    public HashMap<String, ArrayList<String>> updateScorestats(String boardnumber, String boardlocationid, HashMap<String,ArrayList<String>> scores){
+    public Map<String, List<String>> updateScorestats(String boardnumber, String boardlocationid, Map<String,List<String>> scores){
         if(scores.get(boardnumber)==null){
-            ArrayList<String> scorelist= new ArrayList<String>();
+            ArrayList<String> scorelist= new ArrayList<>();
             scorelist.add(boardlocationid);
             scores.put(boardnumber, scorelist);
             return scores;
@@ -33,11 +21,11 @@ public class Scorestat {
             return scores;
         }
         }
-    public HashMap<String, ArrayList<String>> checkForWinner(ArrayList<String> playerlist, HashMap<String,ArrayList<String>> scores){
+    public Map<String, List<String>> checkForWinner(List<String> playerlist, Map<String,List<String>> scores){
         String player="";
-        for(HashMap.Entry<String,ArrayList<String>> entry : scores.entrySet()){
+        for(Map.Entry<String,List<String>> entry : scores.entrySet()){
             String key = entry.getKey();
-            ArrayList<String> value = entry.getValue();
+            List<String> value = entry.getValue();
             if (value.size()==9){
                 if(key.equals("board0")){
                     player=playerlist.get(0);

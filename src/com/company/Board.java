@@ -1,21 +1,18 @@
 package com.company;
-
-import java.awt.image.AreaAveragingScaleFilter;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by stianstrom on 09.04.2017.
  */
 public class Board {
-    public Board(){}
-
-    public ArrayList createBoard(){
+    public List createBoard(){
         int row = 10;
         int columns=10;
-        ArrayList<ArrayList> matrix = new ArrayList<ArrayList>();
+        List matrix = new ArrayList<>();
 
         for (int i = 0; i <row ; i++) {
-            ArrayList<String> line = new ArrayList<String>();
+            List line = new ArrayList();
             for (int j = 0; j <columns ; j++) {
                 line.add("  ");
             }
@@ -23,10 +20,10 @@ public class Board {
         }
         return matrix;
     }
-    public ArrayList createTwoBoards(){
-        ArrayList board1=createBoard();
-        ArrayList board2=createBoard();
-        ArrayList<ArrayList> boardlist= new ArrayList<ArrayList>();
+    public List createTwoBoards(){
+        List board1=createBoard();
+        List board2=createBoard();
+        List boardlist= new ArrayList<>();
         boardlist.add(board1);
         boardlist.add(board2);
         return boardlist;

@@ -1,21 +1,20 @@
 package com.company;
 
 
-import javax.xml.transform.Source;
-import java.awt.image.AreaAveragingScaleFilter;
-import java.lang.reflect.Array;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
         // write your code here
         ArrangeBoardAndBoats arrangeboardandboats = new ArrangeBoardAndBoats();
-        ArrayList<ArrayList> boards = arrangeboardandboats.placeBoats();
+        List<ArrayList> boards = arrangeboardandboats.placeBoats();
         GameLogic gameLogic = new GameLogic();
         long speed = 0;
-        ArrayList<String> players = new ArrayList();
-        String player = "";
+        List<String> players = new ArrayList();
+        String player;
         while (true) {
             players.add("Stian");
             players.add("Bot");
