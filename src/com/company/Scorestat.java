@@ -5,7 +5,15 @@ import java.util.Map;
 
 /**
  * Created by stianstrom on 13.04.2017.
+ *
+ * This class is the scorestat class. It contains two methods: The first method updates the score stats for a player.
+ * This is done by adding a boat Id to an arraylist inside a Hashmap.
+ *
+ * The second method performs a check to see if we have a winner. When the length of the Arraylist for a board in the
+ * Hashmap is equal to 9. It would mean that all boats have been blown up from the board. This means that we have a winner,
+ * and the program exits with exit code 0.
  */
+
 public class Scorestat {
 
     public Map<String, List<String>> updateScorestats(String boardnumber, String boardlocationid, Map<String,List<String>> scores){

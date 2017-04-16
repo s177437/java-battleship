@@ -8,6 +8,9 @@ import java.util.*;
 
 /**
  * Created by stianstrom on 14.04.2017.
+ *
+ * This is the testclass for the battleship game. The different game methods are tested here to make sure they are
+ * compliant to the requirements for the game.
  */
 public class Battleshiptests {
 
@@ -87,10 +90,23 @@ public class Battleshiptests {
     @Test
     public void testBoardIsNotNull(){
         ArrangeBoardAndBoats arrangements=new ArrangeBoardAndBoats();
-        List matrix=createMatrix();
         List boards = arrangements.placeBoats();
         Assert.assertNotNull(boards);
     }
-
+    @Test
+    public void testCheckForWinnerIsFalse(){
+        Scorestat scorestat = new Scorestat();
+        String board0="board0";
+        String board1="board1";
+        List winnerlist0 = new ArrayList<>(Arrays.asList("A0","B0","B1","C0","C1","C2","D0","D1"));
+        List winnerlist1 = new ArrayList<>(Arrays.asList("A1","B1","B0","C0","C1","C2","D0"));
+        List playerlist=new ArrayList<>();
+        playerlist.add("Stian");
+        playerlist.add("Bot");
+        Map<String,List<String>> winnermap=new HashMap<>();
+        winnermap.put(board0,winnerlist0);
+        winnermap.put(board1,winnerlist1);
+        Assert.assertNotNull(scorestat.checkForWinner(playerlist,winnermap));
+    }
 
 }

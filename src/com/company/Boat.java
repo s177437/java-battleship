@@ -4,6 +4,13 @@ import java.util.List;
 
 /**
  * Created by stianstrom on 09.04.2017.
+ *
+ * This is the boatclass.
+ *
+ * The first method creates a boatlist containing a given amount if boats with a certain length.
+ * The second method generates a set of boatlists based on instruction given for the battleship game.
+ *
+ *
  */
 public class Boat {
     public List createBoat(int number, int length, String symbolToRepresentBoat) {

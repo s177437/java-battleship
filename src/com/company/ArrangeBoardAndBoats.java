@@ -5,6 +5,14 @@ import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Created by stianstrom on 09.04.2017.
+ *
+ * This is the logic to generate boards and place out boats.
+ * The first method tries to place out boats to the boards. In order to be able to place out the boats, a validation
+ * check must be passed. This evaluation check aims performs a check to make sure that the generated location does not
+ * exceed the boards column or row number. It also makes sure that a boat will not overwrite an already places boat on
+ * the board.
+ *
+ * The last function performs a check to see if a boat is blown up from the board during gameplay.
  */
 public class ArrangeBoardAndBoats {
     private boolean placementOK;

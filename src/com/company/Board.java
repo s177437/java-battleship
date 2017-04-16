@@ -4,6 +4,10 @@ import java.util.List;
 
 /**
  * Created by stianstrom on 09.04.2017.
+ *
+ * This is the board class. The class contains two methods for generating the empty board matrices.
+ * The first method creates a 10X10 board, while the other function uses the first to create a boardlist of two
+ * 10x10 boards.
  */
 public class Board {
     public List createBoard(){
