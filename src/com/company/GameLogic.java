@@ -11,14 +11,13 @@ import java.util.concurrent.TimeUnit;
  * Created by stianstrom on 13.04.2017.
  *
  * This is the Gamelogic class. In this class, battleship is being played. The player has four alternatives:
- *  *The fist alternative is to hit a blank field. If a blank field is hit, it is the next players turn
- *  * If the player hits part of a boat. The player gets one more try.
- *  * When a boat blown up, it is signalised by the program
- *  * The players might hit fields that already have been hit, since it uses a random algorithm to generate the location
- *  coorinates to hit. If the coordinates have been hit before. The player gets another try.
- *  * The symbol -- is used to indicate that the player hit part of a boat.
- *  * The symbol ** is used to indicate that the player hit a blank field.
- *
+ * *The fist alternative is to hit a blank field. If a blank field is hit, it is the next players turn
+ * * If the player hits part of a boat. The player gets one more try.
+ * * When a boat blown up, it is signalised by the program
+ * * The players might hit fields that already have been hit, since it uses a random algorithm to generate the location
+ * coordinates to hit. If the coordinates have been hit before. The player gets another try.
+ * * The symbol -- is used to indicate that the player hit part of a boat.
+ * * The symbol ** is used to indicate that the player hit a blank field.
  */
 public class GameLogic {
     Map<String, List<String>> scores = new HashMap<>();

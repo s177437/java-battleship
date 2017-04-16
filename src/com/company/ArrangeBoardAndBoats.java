@@ -1,4 +1,5 @@
 package com.company;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
@@ -31,7 +32,7 @@ public class ArrangeBoardAndBoats {
         for (ArrayList board : boardlist) {
             List newboard = new ArrayList<>();
             for (List<ArrayList> boatlist : fullboatlist) {
-                for (ArrayList boat : boatlist){
+                for (ArrayList boat : boatlist) {
                     setPlacementOk(false);
                     int direction = ThreadLocalRandom.current().nextInt(0, 1 + 1);
                     int a = 0;
@@ -39,11 +40,11 @@ public class ArrangeBoardAndBoats {
                     while (!placementOK) {
                         a = ThreadLocalRandom.current().nextInt(1, 10 + 1) - 1;
                         b = ThreadLocalRandom.current().nextInt(1, 10 + 1) - 1;
-                        validate(board,boat,direction,a,b);
+                        validate(board, boat, direction, a, b);
                         placementOK = getPlacementOK();
                     }
                     newboard = placeOutBoats(board, boat, direction, a, b);
-                 }
+                }
             }
             newBoardList.add(newboard);
         }
@@ -53,10 +54,9 @@ public class ArrangeBoardAndBoats {
 
     public void validate(List<ArrayList> board, List boat, int direction, int row, int column) {
         setPlacementOk(true);
-        if (direction==1 && boat.size() + column > 10 || direction==0 && boat.size()+row >10){
+        if (direction == 1 && boat.size() + column > 10 || direction == 0 && boat.size() + row > 10) {
             setPlacementOk(false);
-        }
-        else if (direction == 1) {
+        } else if (direction == 1) {
             for (int i = 0; i < boat.size(); i++) {
                 if (board.get(row).get(column + i) != "  ") {
                     setPlacementOk(false);
@@ -74,7 +74,7 @@ public class ArrangeBoardAndBoats {
     public List placeOutBoats(List<ArrayList> board, List boat, int direction, int row, int column) {
         List oldboard = board;
         setPlacementOk(true);
-        if(direction==1) {
+        if (direction == 1) {
             for (int i = 0; i < boat.size(); i++) {
                 if (board.get(row).get(column + i) != "  ") {
                     setPlacementOk(false);
@@ -83,27 +83,25 @@ public class ArrangeBoardAndBoats {
                     board.get(row).set(column + i, boat.get(i));
                 }
             }
-        }
-        else{
-                for (int i = 0; i <boat.size() ; i++) {
-                    if(board.get(row+i).get(column)!="  "){
-                        setPlacementOk(false);
-                        return oldboard;
-                    }
-                    else{
-                        board.get(row+i).set(column,boat.get(i));
-
-                    }
+        } else {
+            for (int i = 0; i < boat.size(); i++) {
+                if (board.get(row + i).get(column) != "  ") {
+                    setPlacementOk(false);
+                    return oldboard;
+                } else {
+                    board.get(row + i).set(column, boat.get(i));
 
                 }
+
             }
+        }
         return board;
     }
 
-    public Boolean checkIfBoatIsBlownUp(String boatid, List<ArrayList<String>> board){
-        for(ArrayList<String> line:board ){
-            for(String element : line){
-                if(element==boatid){
+    public Boolean checkIfBoatIsBlownUp(String boatid, List<ArrayList<String>> board) {
+        for (ArrayList<String> line : board) {
+            for (String element : line) {
+                if (element == boatid) {
                     return false;
                 }
             }
