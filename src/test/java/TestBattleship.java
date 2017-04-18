@@ -14,8 +14,8 @@ public class TestBattleship {
 
 
     public List createMatrix() {
-        ArrayList<String> line = new ArrayList<>(Arrays.asList("  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  "));
-        List<ArrayList> matrix = new ArrayList<>();
+        List <String> line = new ArrayList<>(Arrays.asList("  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  "));
+        List<List> matrix = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             matrix.add(line);
         }
