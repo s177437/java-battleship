@@ -10,7 +10,7 @@ import java.util.*;
  * This is the testclass for the battleship game. The different game methods are tested here to make sure they are
  * compliant to the requirements for the game.
  */
-public class Battleshiptests {
+public class TestBattleship {
 
 
     public List createMatrix() {
