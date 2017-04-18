@@ -1,9 +1,9 @@
 package com.company;
-
 import java.util.ArrayList;
 import java.util.List;
 
 /**
+ *
  * Created by stianstrom on 09.04.2017.
  * <p>
  * This is the board class. The class contains two methods for generating the empty board matrices.

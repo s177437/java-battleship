@@ -1,5 +1,4 @@
-package com.company;
-
+import com.company.*;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -7,7 +6,7 @@ import java.util.*;
 
 /**
  * Created by stianstrom on 14.04.2017.
- * 
+ *
  * This is the testclass for the battleship game. The different game methods are tested here to make sure they are
  * compliant to the requirements for the game.
  */
