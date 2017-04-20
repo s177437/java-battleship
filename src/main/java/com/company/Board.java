@@ -1,9 +1,10 @@
 package com.company;
+
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
- *
  * Created by stianstrom on 09.04.2017.
  * <p>
  * This is the board class. The class contains two methods for generating the empty board matrices.
@@ -11,13 +12,14 @@ import java.util.List;
  * 10x10 boards.
  */
 public class Board {
-    public List createBoard() {
+
+    public List<List<String>> createBoard() {
         int row = 10;
         int columns = 10;
-        List matrix = new ArrayList<>();
+        List<List<String>> matrix = new ArrayList<>();
 
         for (int i = 0; i < row; i++) {
-            List line = new ArrayList();
+            List<String> line = new LinkedList<>();
             for (int j = 0; j < columns; j++) {
                 line.add("  ");
             }
@@ -26,12 +28,10 @@ public class Board {
         return matrix;
     }
 
-    public List createTwoBoards() {
-        List board1 = createBoard();
-        List board2 = createBoard();
-        List boardlist = new ArrayList<>();
-        boardlist.add(board1);
-        boardlist.add(board2);
+    public List<List<List<String>>> createTwoBoards() {
+        LinkedList<List<List<String>>> boardlist = new LinkedList<>();
+        boardlist.add(createBoard()); // Board #1.
+        boardlist.add(createBoard()); // Board #2.
         return boardlist;
     }
 }

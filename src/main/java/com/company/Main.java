@@ -1,5 +1,7 @@
 package com.company;
+
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -13,10 +15,10 @@ public class Main {
 
     public static void main(String[] args) {
         ArrangeBoardAndBoats arrangeboardandboats = new ArrangeBoardAndBoats();
-        List<ArrayList> boards = arrangeboardandboats.placeBoats();
+        List<List<List<String>>> boards = arrangeboardandboats.placeBoats();
         GameLogic gameLogic = new GameLogic();
         long speed = 0;
-        List<String> players = new ArrayList();
+        List<String> players = new LinkedList<>();
         String player;
         while (true) {
             players.add("Stian");
@@ -30,11 +32,9 @@ public class Main {
                 try {
                     gameLogic.play(boards.get(i), players, i, speed, player);
                 } catch (InterruptedException e) {
-                    System.out.println(e);
+                    System.out.println(e.toString());
                 }
-
             }
-
         }
     }
 }

@@ -1,5 +1,7 @@
 package com.company;
+
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -10,10 +12,12 @@ import java.util.List;
  * The second method generates a set of boatlists based on instruction given for the battleship game.
  */
 public class Boat {
-    public List createBoat(int number, int length, String symbolToRepresentBoat) {
-        List boatlist = new ArrayList();
+
+    public List<List<String>> createBoat(int number, int length, String symbolToRepresentBoat) {
+        List<List<String>> boatlist = new LinkedList<>();
+
         for (int i = 0; i < number; i++) {
-            ArrayList<String> boat = new ArrayList<>();
+            List<String> boat = new LinkedList<>();
             String boatIdToAppend = symbolToRepresentBoat + Integer.toString(i);
             for (int j = 0; j < length; j++) {
                 boat.add(boatIdToAppend);
@@ -23,16 +27,12 @@ public class Boat {
         return boatlist;
     }
 
-    public List createFullBoatList() {
-        List listOfBoats = new ArrayList();
-        List boatlist1 = createBoat(1, 6, "A");
-        List boatlist2 = createBoat(2, 4, "B");
-        List boatlist3 = createBoat(3, 3, "C");
-        List boatlist4 = createBoat(3, 2, "D");
-        listOfBoats.add(boatlist1);
-        listOfBoats.add(boatlist2);
-        listOfBoats.add(boatlist3);
-        listOfBoats.add(boatlist4);
+    public List<List<List<String>>> createFullBoatList() {
+        List<List<List<String>>> listOfBoats = new LinkedList<>();
+        listOfBoats.add(createBoat(1, 6, "A")); // Boat A.
+        listOfBoats.add(createBoat(2, 4, "B")); // Boat B.
+        listOfBoats.add(createBoat(3, 3, "C")); // Boat C.
+        listOfBoats.add(createBoat(3, 2, "D")); // Boat D.
         return listOfBoats;
     }
 }

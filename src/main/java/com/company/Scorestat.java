@@ -1,11 +1,12 @@
-package com.company; 
+package com.company;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 /**
  * Created by stianstrom on 13.04.2017.
- *
+ * <p>
  * This class is the scorestat class. It contains two methods: The first method updates the score stats for a player.
  * This is done by adding a boat Id to an arraylist inside a Hashmap.
  * The second method performs a check to see if we have a winner. When the length of the Arraylist for a board in the
@@ -29,7 +30,7 @@ public class Scorestat {
     }
 
     public Map<String, List<String>> checkForWinner(List<String> playerlist, Map<String, List<String>> scores) {
-        String player = "";
+        String player;
         for (Map.Entry<String, List<String>> entry : scores.entrySet()) {
             String key = entry.getKey();
             List<String> value = entry.getValue();
